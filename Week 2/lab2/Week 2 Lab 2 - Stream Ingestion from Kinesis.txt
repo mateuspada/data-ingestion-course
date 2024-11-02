@@ -1,0 +1,14 @@
+Week 2 Lab 2 - Stream Ingestion from Kinesis
+
+CDC Tools:
+
+Debezium - https://debezium.io/
+AWS DMS - https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html
+Kafka connect API - https://limadelrey.medium.com/kafka-connect-how-to-create-a-real-time-data-pipeline-using-change-data-capture-cdc-c60e06e5306a
+Airbyte log-based CDC - https://airbyte.com/solutions/database-replication
+
+python consumer_from_cli.py --stream de-c2w2lab1-kinesis-data-stream-cli
+
+python producer_from_cli.py --stream de-c2w2lab1-kinesis-data-stream-cli --json_string '{"session_id": "a1", "customer_number": 100, "city": "Washington", "country": "USA", "credit_limit": 1000, "browse_history": [ {"product_code": "Product1", "quantity": 2, "in_shopping_cart": true}, {"product_code": "Product2", "quantity": 1, "in_shopping_cart": false}]}'
+
+python consumer.py --source_stream de-c2w2lab1-kinesis-data-stream --dest_streams '{"USA": "de-c2w2lab1-usa-data-stream", "International": "de-c2w2lab1-international-data-stream"}'

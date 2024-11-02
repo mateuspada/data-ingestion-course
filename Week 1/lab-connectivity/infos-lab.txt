@@ -1,0 +1,23 @@
+de-c2w1a1-rds.cha6sm6kqbqs.us-east-1.rds.amazonaws.com
+5432
+
+aws rds describe-db-instances --db-instance-identifier de-c2w1a1-rds --output text --query "DBInstances[].Endpoint.Address"
+
+sudo yum install postgresql15.x86_64 -y
+
+psql --host=de-c2w1a1-rds.cha6sm6kqbqs.us-east-1.rds.amazonaws.com --username=postgres --password --port=5432
+
+
+subnet-029a45b56098d96e2 - de-c2w1a1-private-subnet-a
+subnet-0cfb78b19c3bf9fce - de-c2w1a1-private-subnet-b
+
+
+subnet-06ca0dd3883c28d37 - de-c2w1a1-public-subnet-a
+
+\i sql/ratings_table_ddl.sql
+
+s3: de-c2w1a1-211125501968-us-east-1-data-test
+
+python3 scripts/download_from_s3.py
+
+\i sql/copy_data.sql

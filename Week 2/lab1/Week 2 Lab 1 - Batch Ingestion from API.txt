@@ -1,0 +1,6 @@
+Week 2 Lab 1 - Batch Ingestion from API
+
+aws s3 cp --recursive s3://dlai-data-engineering/labs/c2w2a1-105953/ ./
+
+source scripts/setup_jupyter_env.sh
+
